@@ -1,0 +1,14 @@
+{
+    "Baseline_ARI": 0.32514825941156156,
+    "Gradient_Reference_Coupling_Pval": 0.1288309047690587,
+    "Gradient_Reference_Coupling_Rho": -0.024153539469532834,
+    "SLC": 0.9974818091420438,
+    "Stability_Correlations": {
+        "B_Cell_Mantle": -0.3967089143195591,
+        "Germinal_Center_Dark": -0.23206470501856274,
+        "Germinal_Center_Light": -0.2331140954803957,
+        "High_Endothelial_Venules": 0.11229156054981498,
+        "T_Zone_Parafollicular": 0.29363768334504686
+    },
+    "TOI": 0.8507621966873775
+}

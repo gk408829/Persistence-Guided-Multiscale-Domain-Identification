@@ -1,0 +1,142 @@
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:155 - Log file created: ./persist_output_human_lymph_node/persist_pipeline.log
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:3080 - Validating input data...
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:3094 - Input data validated: 4035 spots, 22411 genes
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:3121 - ============================================================
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:3122 - PERSIST PIPELINE STARTED
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:3123 - ============================================================
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:3124 - Tissue type: human_lymph_node
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:3125 - Number of scales: 5
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:3126 - Top genes: 2000
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:3127 - Output directory: ./persist_output_human_lymph_node
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:3132 - Using knowledge base for: human_lymph_node
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:3141 - Loaded 5 stability markers, 3 reference markers
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:3151 - 
+========================================
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:3152 - PHASES 0-1: PREPROCESSING & MESH CONSTRUCTION
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:3153 - ========================================
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:1073 - Input validated: 4035 spots, 22411 genes
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:1099 - ============================================================
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:1100 - PHASE 0-1: SPATIAL PREPROCESSING AND MESH CONSTRUCTION
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:1101 - ============================================================
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:1104 - Step 1: Selecting informative genes...
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:632 - 
+        ╔════════════════════════════════════════════════════════╗
+        ║     TISSUE-ADAPTIVE GENE SELECTION STRATEGY            ║
+        ╠════════════════════════════════════════════════════════╣
+        ║  Tissue Pattern: discrete_compartments          ║
+        ║  Strategy: strict                                     ║
+        ║  Pre-filter: 5000                                         ║
+        ║  Moran's I Base: 0.20                                   ║
+        ║  Percentile Cutoff: 70                               th ║
+        ║  Target Range: 2000-5000 genes                          ║
+        ╚════════════════════════════════════════════════════════╝
+        
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:643 - Stage 1: Variance pre-filter (top 5000 HVGs)...
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:651 -   → Pre-filtered: 22411 → 5000 genes
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:671 - Stage 2: Spatial autocorrelation analysis...
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:702 -   → Building spatial neighbor graph...
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:712 -   → Using serial execution (n_jobs=1) for stability on 5000 genes.
+2026-01-22 22:07:48 - PERSIST - INFO - persist_final.py:714 -   → Computing Moran's I for 5000 genes (n_jobs=1)...
+2026-01-22 22:11:37 - PERSIST - INFO - persist_final.py:749 -   → Moran's I distribution: max=0.730, median=0.010, mean=0.033, min=-0.027
+2026-01-22 22:11:37 - PERSIST - INFO - persist_final.py:821 -   → Spatial quality: weak (median Moran's I = 0.010)
+2026-01-22 22:11:37 - PERSIST - INFO - persist_final.py:838 -   → Applying STRICT threshold: Moran's I > 0.200
+2026-01-22 22:11:37 - PERSIST - WARNING - persist_final.py:850 -   → Only 198 genes pass threshold. Taking top 2000 by Moran's I (max available: 5000).
+2026-01-22 22:11:37 - PERSIST - INFO - persist_final.py:989 - 
+  ✓ SELECTION COMPLETE:
+    • Selected: 2000 genes
+    • Moran's I range: 0.016 to 0.730
+    • Moran's I median: 0.043
+    • Retention rate: 40.0%
+            
+2026-01-22 22:11:37 - PERSIST - INFO - persist_final.py:1116 - Selected 2000 genes for analysis
+2026-01-22 22:11:37 - PERSIST - INFO - persist_final.py:1119 - Step 2: Loading configuration for tissue type: human_lymph_node
+2026-01-22 22:11:37 - PERSIST - INFO - persist_final.py:1136 - Mesh strategy: largest_component, min_k: 3, auto_bridge: False
+2026-01-22 22:11:37 - PERSIST - INFO - persist_final.py:1143 - Step 3: Constructing adaptive mesh...
+2026-01-22 22:11:37 - PERSIST - INFO - persist_final.py:1177 - Starting with 4035 spatial spots
+2026-01-22 22:11:37 - PERSIST - INFO - persist_final.py:1242 - Final retention: 98.0% with k=3
+2026-01-22 22:11:37 - PERSIST - INFO - persist_final.py:1267 - Pruning: Dropped 80 unconnected/noise spots (2.0% of total)
+2026-01-22 22:11:37 - PERSIST - INFO - persist_final.py:1278 - Characteristic scale (median nearest-neighbor distance): 137.00
+2026-01-22 22:11:37 - PERSIST - INFO - persist_final.py:1284 - Maximum alpha squared: 75080.0000
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1303 - Mesh constructed: 3955 nodes, 11672 edges, 7717 triangles.
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1151 - Step 4: Applying heat diffusion smoothing...
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1374 - Heat diffusion smoothing applied successfully
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1154 - Preprocessing complete. Final dataset: 3955 spots, 2000 genes
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:3166 - 
+========================================
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:3167 - PHASE 2: TOPOLOGICAL SCALE ANALYSIS
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:3168 - ========================================
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1436 - ============================================================
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1437 - PHASE 2: TOPOLOGICAL SCALE ANALYSIS
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1438 - ============================================================
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1441 - Computing persistent homology...
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1456 - Topological structure: Found 7572 persistent H₁ features (finite lifetimes)
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1464 - H₁ persistence statistics: mean lifetime = 1591.9010, max lifetime = 60863.8433, min lifetime = 0.0099
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1504 - Computing optimal scales (requested: 5 scales)
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1555 - Optimal scales computed: 22711.7000 to 92793.7500 (5 scales, geometric spacing)
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:3179 - 
+========================================
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:3180 - PHASE 3: MULTISCALE TOTAL VARIATION
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:3181 - ========================================
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1702 - Topological Boundary Mask: identified 190 edge nodes to suppress (4.8% of total)
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1725 - ============================================================
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1726 - PHASE 3: MULTISCALE TOTAL VARIATION ANALYSIS
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1727 - ============================================================
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1749 - Using CPU for TV computations
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1765 - Scale weights assigned: [1.38 1.38 1.4  0.84 0.  ]
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1832 - Stability score computed: mean=0.641, std=0.282
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1896 - Frontier TV computed: mean magnitude=0.341, max magnitude=1.000
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1843 - Multiscale TV analysis completed successfully
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1909 - Phase 3b: Bootstrapping for robustness assessment
+2026-01-22 22:11:38 - PERSIST - INFO - persist_final.py:1917 - Running 100 bootstrap iterations (sample fraction: 0.85)
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:1952 - Robustness assessment complete: 1373 significant cores identified (34.7% of spots)
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:3190 - 
+========================================
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:3191 - PHASE 4: BASIN DECOMPOSITION
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:3192 - ========================================
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:2047 - ============================================================
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:2048 - PHASE 4: BASIN DECOMPOSITION (TOPOGRAPHIC WATERSHED)
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:2049 - ============================================================
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:2056 - Performing watershed on 3955 spots
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:2110 - Found 16 local maxima for watershed seeds
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:2127 - Watershed segmentation identified 16 stability basins
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:2143 - Basin decomposition complete. Domain sizes: min=50, max=575, mean=247.2
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:3200 - 
+========================================
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:3201 - PHASE 5: VALIDATION & VISUALIZATION
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:3202 - ========================================
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:2202 - ============================================================
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:2203 - PHASE 5a: QUANTITATIVE METRICS AND ANNOTATION
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:2204 - ============================================================
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:2207 - Step 1: Biological annotation alignment...
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:2330 - Aligning domains with 5 biological annotations
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:2387 - Annotation complete: 16 unique annotations
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:2211 - Step 2: Structural metric computation...
+2026-01-22 22:11:39 - PERSIST - INFO - persist_final.py:2400 - Computing baseline leiden clustering...
+2026-01-22 22:12:37 - PERSIST - INFO - persist_final.py:2404 - Baseline clustering created: 12 clusters
+2026-01-22 22:12:37 - PERSIST - INFO - persist_final.py:2419 - Baseline ARI: 0.3251
+2026-01-22 22:12:37 - PERSIST - INFO - persist_final.py:2444 - Topological Orthogonality Index: 0.8508
+2026-01-22 22:12:37 - PERSIST - INFO - persist_final.py:2473 - Scale Local Coherence: 0.9975
+2026-01-22 22:12:37 - PERSIST - INFO - persist_final.py:2217 - Step 3: Coupling metric computation...
+2026-01-22 22:12:37 - PERSIST - INFO - persist_final.py:2500 - Gradient-Reference Coupling: rho=-0.0242, p=1.2883e-01
+2026-01-22 22:12:37 - PERSIST - INFO - persist_final.py:2541 - Strongest stability correlation: B_Cell_Mantle = -0.3967
+2026-01-22 22:12:37 - PERSIST - INFO - persist_final.py:2223 - Step 4: Saving metrics...
+2026-01-22 22:12:37 - PERSIST - INFO - persist_final.py:2251 - Metrics saved to ./persist_output_human_lymph_node/persist_metrics.json
+2026-01-22 22:12:37 - PERSIST - INFO - persist_final.py:2272 - Metric Summary:
+  Baseline ARI: 0.3251
+  Topological Orthogonality Index: 0.8508
+  Scale Local Coherence: 0.9975
+  Gradient-Reference Coupling: -0.0242
+2026-01-22 22:12:37 - PERSIST - INFO - persist_final.py:2591 - ============================================================
+2026-01-22 22:12:37 - PERSIST - INFO - persist_final.py:2592 - PHASE 5b: GENERATING VISUALIZATIONS & REPORT
+2026-01-22 22:12:37 - PERSIST - INFO - persist_final.py:2593 - ============================================================
+2026-01-22 22:13:01 - PERSIST - INFO - persist_final.py:2892 - Generating Biological Marker Dotplot...
+2026-01-22 22:13:02 - PERSIST - INFO - persist_final.py:2964 - Marker dotplot saved successfully (Sorted 16 domains).
+2026-01-22 22:13:03 - PERSIST - INFO - persist_final.py:2637 - Report saved: ./persist_output_human_lymph_node/PERSIST_Analysis_Report.pdf
+2026-01-22 22:13:03 - PERSIST - INFO - persist_final.py:2638 - Individual images saved to: ./persist_output_human_lymph_node/visualizations
+2026-01-22 22:13:03 - PERSIST - INFO - persist_final.py:3261 - Pipeline state saved to ./persist_output_human_lymph_node/persist_final_state.npz
+2026-01-22 22:13:03 - PERSIST - INFO - persist_final.py:3229 - 
+============================================================
+2026-01-22 22:13:03 - PERSIST - INFO - persist_final.py:3230 - PERSIST PIPELINE COMPLETE
+2026-01-22 22:13:03 - PERSIST - INFO - persist_final.py:3231 - ============================================================
+2026-01-22 22:13:03 - PERSIST - INFO - persist_final.py:3232 - Results saved to: ./persist_output_human_lymph_node
+2026-01-22 22:13:03 - PERSIST - INFO - persist_final.py:3531 - Pipeline completed successfully

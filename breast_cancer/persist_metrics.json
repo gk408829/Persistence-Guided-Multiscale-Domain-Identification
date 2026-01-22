@@ -1,0 +1,15 @@
+{
+    "Baseline_ARI": 0.4254653490430152,
+    "Gradient_Reference_Coupling_Pval": 1.2753179334052453e-81,
+    "Gradient_Reference_Coupling_Rho": 0.30410234846415846,
+    "SLC": 0.9995590828915342,
+    "Stability_Correlations": {
+        "B_Cells": -0.12323430129406372,
+        "Endothelial": -0.20464762435957454,
+        "Fibroblast_Stroma": -0.3357475931864471,
+        "Macrophages": -0.2624990279293464,
+        "Myoepithelial (Walls)": -0.172410588337764,
+        "T_Cells": -0.21105799388707244
+    },
+    "TOI": 0.8650675661499863
+}
