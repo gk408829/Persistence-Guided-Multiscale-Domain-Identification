@@ -3516,7 +3516,7 @@ def main() -> None:
         
         # Success message
         success_msg = f"""
-        ✅ PERSIST Pipeline Completed Successfully!
+        PERSIST Pipeline Completed Successfully!
         
         Results saved to: {args.output_dir}
         
@@ -3532,17 +3532,17 @@ def main() -> None:
         
     except FileNotFoundError as e:
         logger.error(f"Data file not found: {e}")
-        print(f"❌ ERROR: Data file not found: {e}")
+        print(f"ERROR: Data file not found: {e}")
         sys.exit(1)
         
     except ValueError as e:
         logger.error(f"Invalid input or parameter: {e}")
-        print(f"❌ ERROR: Invalid input: {e}")
+        print(f"ERROR: Invalid input: {e}")
         sys.exit(1)
         
     except RuntimeError as e:
         logger.error(f"Pipeline runtime error: {e}")
-        print(f"❌ ERROR: Pipeline failed: {e}")
+        print(f"ERROR: Pipeline failed: {e}")
         sys.exit(1)
         
     except Exception as e:
@@ -3550,7 +3550,7 @@ def main() -> None:
         import traceback
         traceback_str = traceback.format_exc()
         logger.error(f"Traceback:\n{traceback_str}")
-        print(f"❌ UNEXPECTED ERROR: {e}")
+        print(f"UNEXPECTED ERROR: {e}")
         print("Check the log file for details.")
         sys.exit(1)
 
